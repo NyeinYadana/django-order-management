@@ -17,6 +17,7 @@ pip3 install Pillow
 
 # Virtual environment setup
 python3 -m venv env
+
 source env/bin/activate
 
 # Runserver
@@ -38,6 +39,7 @@ pip install Pillow
 
 # Virtual environment setup
 python -m venv env
+
 \env\Scripts\activate.bat
 
 # Runserver
