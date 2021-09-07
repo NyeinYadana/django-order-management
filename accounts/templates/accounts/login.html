@@ -1,0 +1,24 @@
+{% extends 'accounts/master.html' %}
+{% load widget_tweaks %}
+{% block content %}
+        <form method="POST">
+            {% csrf_token %} 
+                {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{message}}
+                    </div>
+                {% endfor %}               
+                <div class="mb-3">
+                    <label for="">UserName</label>
+                    <input type="text" name="username" class="form-contorl">
+                    <div class="text-danger">{{input.errors}}</div>
+                </div>
+                <div class="mb-3">
+                    <label for="">Password</label>
+                    <input type="text" name="password" class="form-contorl">
+                    <div class="text-danger">{{input.errors}}</div>
+                </div>
+                
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+{% endblock content %}

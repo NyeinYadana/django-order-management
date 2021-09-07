@@ -1,0 +1,67 @@
+{% extends 'accounts/master.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-4">
+            <div class="card text-white bg-primary">
+                <div class="card-header">
+                    Total Orders
+                </div>
+                <div class="card-body">
+                  {{totals}}
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card text-white bg-warning">
+                <div class="card-header">
+                    Orders Delivered
+                </div>
+                <div class="card-body">
+                    {{delivered}}
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card text-white bg-info">
+                <div class="card-header">
+                    Orders Pending
+                </div>
+                <div class="card-body">
+                    {{pending}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">     
+        
+        <div class="col-12">
+            <h3>Last 5 Orders:</h3>
+            <hr>
+            <div class="card">
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                                               
+                        <th scope="col">Product</th>
+                        <th scope="col">Date Ordered</th>
+                        <th scope="col">Status</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for order in orders %}
+                      <tr>                       
+                        <td>{{order.product.name}}</td>
+                        <td>{{order.created_at}}</td>
+                        <td>{{order.status}}</td>
+                        
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
